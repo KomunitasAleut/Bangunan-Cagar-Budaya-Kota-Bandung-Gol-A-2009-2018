@@ -41,25 +41,9 @@
         <script src="data/SitusKeramatBandung_4.js"></script>
         <script src="data/BCB2018Tabel1LayerAll_5.js"></script>
         <script>
-        var highlightLayer;
-        function highlightFeature(e) {
-            highlightLayer = e.target;
-
-            if (e.target.feature.geometry.type === 'LineString') {
-              highlightLayer.setStyle({
-                color: '#ffff00',
-              });
-            } else {
-              highlightLayer.setStyle({
-                fillColor: '#ffff00',
-                fillOpacity: 1
-              });
-            }
-            highlightLayer.openPopup();
-        }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[-6.987056853468435,107.46901707181046],[-6.766953879575643,107.80106268057392]]);
+        }).fitBounds([[-6.987056853468435,107.35334283382481],[-6.7669538795756266,107.9167369185595]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -128,21 +112,6 @@
         layer_GoogleSatellite_1;
         map.addLayer(layer_GoogleSatellite_1);
         function pop_CagarBudayaGolonganA2009_2(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (i in e.target._eventParents) {
-                        e.target._eventParents[i].resetStyle(e.target);
-                    }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['ID_1'] !== null ? autolinker.link(feature.properties['ID_1'].toLocaleString()) : '') + '</td>\
@@ -232,21 +201,6 @@
         bounds_group.addLayer(layer_CagarBudayaGolonganA2009_2);
         map.addLayer(layer_CagarBudayaGolonganA2009_2);
         function pop_MonumenBandung_3(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (i in e.target._eventParents) {
-                        e.target._eventParents[i].resetStyle(e.target);
-                    }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Nama</th>\
@@ -305,21 +259,6 @@
         bounds_group.addLayer(layer_MonumenBandung_3);
         map.addLayer(layer_MonumenBandung_3);
         function pop_SitusKeramatBandung_4(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (i in e.target._eventParents) {
-                        e.target._eventParents[i].resetStyle(e.target);
-                    }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">field_1</th>\
@@ -381,21 +320,6 @@
         bounds_group.addLayer(layer_SitusKeramatBandung_4);
         map.addLayer(layer_SitusKeramatBandung_4);
         function pop_BCB2018Tabel1LayerAll_5(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (i in e.target._eventParents) {
-                        e.target._eventParents[i].resetStyle(e.target);
-                    }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">No</th>\
